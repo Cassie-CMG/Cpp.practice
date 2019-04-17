@@ -105,29 +105,30 @@ public:
 	}
 
 	//赋值运算符重载
-	//Vector<T>& operator = (Vector<T> v)
-	//{
-	//	if (*this != &v)
-	//	{
-	//		T*temp = new T[v.Capacity()];
-	//		if (start)
-	//		{
-	//			delete[]start;
-	//		}
-	//		start = temp;
-	//		finish = start + v.Size();
-	//		endOfStorage = start + v.Capacity();
-	//	}
-	//	return *this;
-	//}
+	/*Vector <T>& operator = (Vector<T>& v)
+	{
+		if (this != &v)
+		{
+			T*temp = new T[v.Capacity()];
+			if (start)
+			{
+				delete[]start;
+			}
+			start = temp;
+			finish = start + v.Size();
+			endOfStorage = start + v.Capacity();
+		}
+		return *this;
+	}*/
 
 	//交换两个vector数据空间
-	void Swap(Vector<T>v)
+	void Swap(Vector<T>&v)
 	{
 		swap(start, v.start);
 		swap(finish, v.finish);
 		swap(endOfStorage, v.endOfStorage);
 	}
+
 	//赋值运算符重载
 	Vector<T>& operator=(Vector<T>v)
 	{
@@ -138,7 +139,7 @@ public:
 	//删除pos对应位置数据
 	iterator Erase(iterator pos)
 	{
-		assert(pos < finish&&pos>=start);
+		assert(pos < finish && pos>=start);
 		iterator begin = pos + 1;
 		while (begin < finish)
 		{
@@ -230,7 +231,7 @@ void PrintVector(const Vector<T>&v)
 
 void test()
 {
-	Vector <int>v;
+	Vector <int> v;
 	v.PushBack(1);
 	v.PushBack(2);
 	v.PushBack(3);
