@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cstdbool>
 using namespace std;
-
 class Date
 {
 public:
@@ -44,9 +43,6 @@ int Date::GetDay(int month, int year)
 	}
 	return day;
 }
-
-
-
 
 Date::Date(int year, int month, int day)
 {
@@ -127,7 +123,6 @@ Date Date::operator + (int days)
 	return d;
 }
 
-
 Date Date::operator - (int days)
 {
 	Date d(*this);
@@ -146,16 +141,16 @@ int Date::operator - (const Date& d)
 			++D;
 			count++;
 		}
-		return count;
+		return -count;
 	}
 	else
 	{
 		while (D > d)
 		{
-			D--;
+			--D;
 			count++;
 		}
-		return -count;
+		return count;
 	}
 }
 
@@ -191,19 +186,13 @@ bool Date::operator > (const Date& d)const
 	{
 		return true;
 	}
-	else if (_year == d._year)
+	else if (_year == d._year&&_month > d._month)
 	{
-		if (_month > d._month)
-		{
-			return true;
-		}
-		else if (_month == d._month)
-		{
-			if (_day > d._day)
-			{
+		return true;
+	}
+	else if (_year == d._year&&_month == d._month&&_day>d._day)
+	{
 				return true;
-			}
-		}
 	}
 	return false;
 }

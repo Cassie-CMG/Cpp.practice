@@ -19,17 +19,14 @@ void test()
 
 	cout << "(d1(2018, 5, 5) += 60)  -  (d2(2019, 3, 14) -= 364)" << endl;
 	cout << (d1 - d2) << endl;
-
 	cout << (d1 > d2) << endl;
 	cout << (d1 >= d2) << endl;
 	cout << (d1 != d2) << endl;
 	cout << (d1 == d2) << endl;
 	cout << (d1 < d2) << endl;
-	cout << (d1 <= d2) << endl;
-
+	
 	d2 = d1;
 	d2.DisPlay();
-
 }
 
 int main()
